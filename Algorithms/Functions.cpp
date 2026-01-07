@@ -17,7 +17,6 @@ vector<int> BubbleSort(vector<int> nums) {
 	}
 	return nums;
 }
-
 vector<int> ShakerSort(vector<int> nums) {
 	int left = 0, right = nums.size() - 1;
 	while (left <= right) {
@@ -33,6 +32,19 @@ vector<int> ShakerSort(vector<int> nums) {
 			}
 		}
 		left++;
+	}
+	return nums;
+}
+vector<int> CombSort(vector<int> nums) {
+	const double factor = 1.247; 
+	double step = nums.size() - 1;
+	while (step >= 1) {
+		for (int i = 0; i + step < nums.size(); i++) {
+			if (nums[i] > nums[i + step]) {
+				swap(nums[i], nums[i + step]);
+			}
+		}
+		step /= factor;
 	}
 	return nums;
 }
